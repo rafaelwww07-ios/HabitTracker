@@ -2,23 +2,27 @@
 //  ContentView.swift
 //  HabitTracker
 //
-//  Created by Rafael Mukhametov on 27.11.2025.
+//  Главный экран приложения
 //
 
 import SwiftUI
+import CoreData
 
 struct ContentView: View {
+    @State private var showOnboarding = !UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if showOnboarding {
+                OnboardingView(isPresented: $showOnboarding)
+            } else {
+                HabitListView()
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

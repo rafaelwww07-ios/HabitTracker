@@ -1,0 +1,43 @@
+# Xcode
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.hmap
+
+# Build artifacts
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.tmp
+
+# IDE
+.idea/
+.vscode/
+
+# Documentation (keep only README.md)
+FEATURES.md
+NEW_FEATURES.md
+ICON_*.md
