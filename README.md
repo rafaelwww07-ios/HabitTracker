@@ -100,7 +100,7 @@
 ### Клонирование репозитория
 
 ```bash
-git clone https://github.com/yourusername/HabitTracker.git
+git clone https://github.com/rafaelwww07-ios/HabitTracker.git
 cd HabitTracker
 ```
 
@@ -116,8 +116,6 @@ open HabitTracker.xcodeproj
 2. Нажмите Run (⌘R) или кликните на кнопку Play
 
 ## 📦 Структура проекта
-
-Подробная структура проекта доступна в [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
 
 Основная структура:
 ```
@@ -166,6 +164,8 @@ _Добавьте скриншоты приложения здесь_
 - [ ] Фото-вложения к выполнению
 
 ## 👤 Автор
+
+**Rafael Mukhametov**
 
 Создано с ❤️ используя SwiftUI
 
