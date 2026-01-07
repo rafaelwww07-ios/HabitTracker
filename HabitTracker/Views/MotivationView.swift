@@ -158,3 +158,6 @@ struct TipCard: View {
     MotivationView()
 }
 
+
+
+

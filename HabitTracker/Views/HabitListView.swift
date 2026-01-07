@@ -2,7 +2,7 @@
 //  HabitListView.swift
 //  HabitTracker
 //
-//  Главный экран со списком привычек
+//  Main screen with list of habits
 //
 
 import SwiftUI
@@ -30,11 +30,11 @@ struct HabitListView: View {
     @State private var showTriggers = false
     
     enum FilterOption: String, CaseIterable {
-        case all = "Все"
-        case completed = "Выполненные сегодня"
-        case incomplete = "Не выполненные"
-        case highStreak = "Высокий стрик"
-        case archived = "Архив"
+        case all = "All"
+        case completed = "Completed today"
+        case incomplete = "Not completed"
+        case highStreak = "High streak"
+        case archived = "Archived"
     }
     
     @StateObject private var themeManager = ThemeManager.shared
@@ -50,7 +50,7 @@ struct HabitListView: View {
     var filteredHabits: [Habit] {
         var habits = viewModel.habits
         
-        // Поиск
+        // Search
         if !searchText.isEmpty {
             habits = habits.filter { habit in
                 habit.name.localizedCaseInsensitiveContains(searchText) ||
@@ -58,7 +58,7 @@ struct HabitListView: View {
             }
         }
         
-        // Фильтрация
+        // Filtering
         switch filterOption {
         case .all:
             habits = habits.filter { !$0.isArchived }
@@ -72,7 +72,7 @@ struct HabitListView: View {
             habits = habits.filter { $0.isArchived }
         }
         
-        // Фильтр по категории
+        // Category filter
         if let selectedCategory = selectedCategory {
             habits = habits.filter { $0.category == selectedCategory }
         }
@@ -83,18 +83,18 @@ struct HabitListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                // Градиентный фон с учетом темы
+                // Gradient background based on theme
                 themeManager.currentTheme.backgroundColor
                     .ignoresSafeArea()
                 
                 ScrollView {
                     VStack(spacing: 16) {
-                        // Мотивационная цитата
+                        // Motivational quote
                         if !viewModel.habits.isEmpty {
                             motivationQuoteCard
                         }
                         
-                        // Поиск и фильтры
+                        // Search and filters
                         if !viewModel.habits.isEmpty {
                             searchAndFilters
                         }
@@ -115,7 +115,7 @@ struct HabitListView: View {
                     viewModel.loadHabits()
                 }
             }
-            .navigationTitle("Мои привычки")
+            .navigationTitle("My Habits")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -123,31 +123,31 @@ struct HabitListView: View {
                         Button(action: {
                             showDashboard = true
                         }) {
-                            Label("Дашборд", systemImage: "square.grid.2x2.fill")
+                            Label("Dashboard", systemImage: "square.grid.2x2.fill")
                         }
                         
                         Button(action: {
                             showStatistics = true
                         }) {
-                            Label("Статистика", systemImage: "chart.bar.fill")
+                            Label("Statistics", systemImage: "chart.bar.fill")
                         }
                         
                         Button(action: {
                             showAnalytics = true
                         }) {
-                            Label("Аналитика", systemImage: "chart.line.uptrend.xyaxis")
+                            Label("Analytics", systemImage: "chart.line.uptrend.xyaxis")
                         }
                         
                         Button(action: {
                             showAchievements = true
                         }) {
-                            Label("Достижения", systemImage: "trophy.fill")
+                            Label("Achievements", systemImage: "trophy.fill")
                         }
                         
                         Button(action: {
                             showStreaks = true
                         }) {
-                            Label("Все стрики", systemImage: "flame.fill")
+                            Label("All Streaks", systemImage: "flame.fill")
                         }
                         
                         Divider()
@@ -155,37 +155,37 @@ struct HabitListView: View {
                         Button(action: {
                             showComparison = true
                         }) {
-                            Label("Сравнение периодов", systemImage: "chart.bar.xaxis")
+                            Label("Compare Periods", systemImage: "chart.bar.xaxis")
                         }
                         
                         Button(action: {
                             showMotivation = true
                         }) {
-                            Label("Мотивация", systemImage: "quote.bubble.fill")
+                            Label("Motivation", systemImage: "quote.bubble.fill")
                         }
                         
                         Button(action: {
                             showInsights = true
                         }) {
-                            Label("Инсайты", systemImage: "lightbulb.fill")
+                            Label("Insights", systemImage: "lightbulb.fill")
                         }
                         
                         Button(action: {
                             showChallenges = true
                         }) {
-                            Label("Челленджи", systemImage: "flag.fill")
+                            Label("Challenges", systemImage: "flag.fill")
                         }
                         
                         Button(action: {
                             showTimeStats = true
                         }) {
-                            Label("Активность по времени", systemImage: "clock.fill")
+                            Label("Time Activity", systemImage: "clock.fill")
                         }
                         
                         Button(action: {
                             showWeeklyReview = true
                         }) {
-                            Label("Недельный обзор", systemImage: "calendar.badge.clock")
+                            Label("Weekly Review", systemImage: "calendar.badge.clock")
                         }
                         
                         Divider()
@@ -193,7 +193,7 @@ struct HabitListView: View {
                         Button(action: {
                             showProfile = true
                         }) {
-                            Label("Профиль", systemImage: "person.fill")
+                            Label("Profile", systemImage: "person.fill")
                         }
                         
                         Button(action: {
@@ -205,13 +205,13 @@ struct HabitListView: View {
                         Button(action: {
                             showGroups = true
                         }) {
-                            Label("Группы привычек", systemImage: "folder.fill")
+                            Label("Habit Groups", systemImage: "folder.fill")
                         }
                         
                         Button(action: {
                             showTriggers = true
                         }) {
-                            Label("Триггеры", systemImage: "bolt.fill")
+                            Label("Triggers", systemImage: "bolt.fill")
                         }
                         
                         Divider()
@@ -219,7 +219,7 @@ struct HabitListView: View {
                         Button(action: {
                             showSettings = true
                         }) {
-                            Label("Настройки", systemImage: "gearshape.fill")
+                            Label("Settings", systemImage: "gearshape.fill")
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle.fill")
@@ -232,13 +232,13 @@ struct HabitListView: View {
                         Button(action: {
                             showTemplates = true
                         }) {
-                            Label("Из шаблона", systemImage: "doc.text.fill")
+                            Label("From template", systemImage: "doc.text.fill")
                         }
                         
                         Button(action: {
                             viewModel.showCreateHabit()
                         }) {
-                            Label("Создать новую", systemImage: "plus.circle.fill")
+                            Label("Create new", systemImage: "plus.circle.fill")
                         }
                     } label: {
                         Image(systemName: "plus.circle.fill")
@@ -315,17 +315,17 @@ struct HabitListView: View {
             .sheet(isPresented: $showTriggers) {
                 TriggersView(habits: viewModel.habits)
             }
-            .alert("Удалить привычку?", isPresented: $showDeleteAlert) {
-                Button("Отмена", role: .cancel) {}
-                Button("Удалить", role: .destructive) {
+            .alert("Delete habit?", isPresented: $showDeleteAlert) {
+                Button("Cancel", role: .cancel) {}
+                Button("Delete", role: .destructive) {
                     if let habit = habitToDelete {
                         viewModel.deleteHabit(habit)
                     }
                 }
             } message: {
-                Text("Это действие нельзя отменить.")
+                Text("This action cannot be undone.")
             }
-            .alert("Ошибка", isPresented: Binding(
+            .alert("Error", isPresented: Binding(
                 get: { viewModel.errorMessage != nil },
                 set: { if !$0 { viewModel.errorMessage = nil } }
             )) {
@@ -340,7 +340,7 @@ struct HabitListView: View {
             .onAppear {
                 viewModel.loadHabits()
                 
-                // Запрашиваем разрешение на уведомления
+                // Request notification permission
                 Task {
                     _ = await NotificationManager.shared.requestAuthorization()
                 }
@@ -356,12 +356,12 @@ struct HabitListView: View {
                 .font(.system(size: 60))
                 .foregroundColor(.blue.opacity(0.6))
             
-            Text("Создайте свою первую привычку!")
+            Text("Create your first habit!")
                 .font(.title2)
                 .fontWeight(.semibold)
                 .multilineTextAlignment(.center)
             
-            Text("Начните свой путь к лучшей версии себя")
+            Text("Start your journey to a better version of yourself")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
@@ -371,7 +371,7 @@ struct HabitListView: View {
             }) {
                 HStack {
                     Image(systemName: "plus.circle.fill")
-                    Text("Создать привычку")
+                    Text("Create habit")
                 }
                 .font(.headline)
                 .foregroundColor(.white)
@@ -394,11 +394,11 @@ struct HabitListView: View {
         VStack(spacing: 12) {
             SearchBarView(text: $searchText)
             
-            // Фильтр по категориям
+            // Category filter
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     FilterChip(
-                        title: "Все категории",
+                        title: "All categories",
                         isSelected: selectedCategory == nil
                     ) {
                         withAnimation {
@@ -420,7 +420,7 @@ struct HabitListView: View {
                 .padding(.horizontal)
             }
             
-            // Фильтры статуса
+            // Status filters
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     ForEach(FilterOption.allCases, id: \.self) { option in
@@ -449,7 +449,7 @@ struct HabitListView: View {
             HStack {
                 Image(systemName: "quote.bubble.fill")
                     .foregroundColor(.purple)
-                Text("Цитата дня")
+                Text("Quote of the day")
                     .font(.headline)
                     .fontWeight(.semibold)
             }
@@ -493,7 +493,7 @@ struct HabitListView: View {
                 .font(.system(size: 50))
                 .foregroundColor(.secondary)
             
-            Text("Ничего не найдено")
+            Text("Nothing found")
                 .font(.headline)
                 .foregroundColor(.secondary)
         }
@@ -506,13 +506,13 @@ struct HabitListView: View {
                 HabitCardView(
                     habit: habit,
                     onTap: {
-                        // Тап - отметить выполнение на сегодня
+                        // Tap - mark completion for today
                         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
                             viewModel.toggleCompletion(for: habit)
                         }
                     },
                     onLongPress: {
-                        // Долгое нажатие - редактирование
+                        // Long press - edit
                         viewModel.editHabit(habit)
                     }
                 )
@@ -520,13 +520,13 @@ struct HabitListView: View {
                     Button(action: {
                         viewModel.showHabitDetails(habit)
                     }) {
-                        Label("Детали", systemImage: "info.circle")
+                        Label("Details", systemImage: "info.circle")
                     }
                     
                     Button(action: {
                         viewModel.editHabit(habit)
                     }) {
-                        Label("Редактировать", systemImage: "pencil")
+                        Label("Edit", systemImage: "pencil")
                     }
                     
                     Divider()
@@ -534,20 +534,20 @@ struct HabitListView: View {
                     Button(action: {
                         viewModel.duplicateHabit(habit)
                     }) {
-                        Label("Дублировать", systemImage: "doc.on.doc")
+                        Label("Duplicate", systemImage: "doc.on.doc")
                     }
                     
                     if habit.isArchived {
                         Button(action: {
                             viewModel.unarchiveHabit(habit)
                         }) {
-                            Label("Разархивировать", systemImage: "tray.and.arrow.up")
+                            Label("Unarchive", systemImage: "tray.and.arrow.up")
                         }
                     } else {
                         Button(action: {
                             viewModel.archiveHabit(habit)
                         }) {
-                            Label("Архивировать", systemImage: "archivebox")
+                            Label("Archive", systemImage: "archivebox")
                         }
                     }
                     
@@ -557,7 +557,7 @@ struct HabitListView: View {
                         habitToDelete = habit
                         showDeleteAlert = true
                     }) {
-                        Label("Удалить", systemImage: "trash")
+                        Label("Delete", systemImage: "trash")
                     }
                 }
             }

@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  HabitTracker
 //
-//  Главный экран приложения
+//  Main application screen
 //
 
 import SwiftUI

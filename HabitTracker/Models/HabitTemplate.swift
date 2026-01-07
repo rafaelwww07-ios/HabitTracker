@@ -2,7 +2,7 @@
 //  HabitTemplate.swift
 //  HabitTracker
 //
-//  Шаблоны предустановленных привычек
+//  Predefined habit templates
 //
 
 import Foundation
@@ -20,8 +20,8 @@ struct HabitTemplate: Identifiable {
     
     static let templates: [HabitTemplate] = [
         HabitTemplate(
-            name: "Утренняя зарядка",
-            description: "15-30 минут физических упражнений",
+            name: "Morning Exercise",
+            description: "15-30 minutes of physical exercise",
             iconName: "figure.run",
             colorHex: "#FF6B6B",
             category: .fitness,
@@ -29,8 +29,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 5
         ),
         HabitTemplate(
-            name: "Чтение",
-            description: "Читать книги для саморазвития",
+            name: "Reading",
+            description: "Read books for self-improvement",
             iconName: "book.fill",
             colorHex: "#4ECDC4",
             category: .learning,
@@ -38,8 +38,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 7
         ),
         HabitTemplate(
-            name: "Медитация",
-            description: "Успокаивающая медитация",
+            name: "Meditation",
+            description: "Calming meditation",
             iconName: "leaf.fill",
             colorHex: "#95E1D3",
             category: .personal,
@@ -47,8 +47,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 7
         ),
         HabitTemplate(
-            name: "Пить воду",
-            description: "Выпивать 8 стаканов воды",
+            name: "Drink Water",
+            description: "Drink 8 glasses of water",
             iconName: "drop.fill",
             colorHex: "#3498DB",
             category: .health,
@@ -56,8 +56,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 7
         ),
         HabitTemplate(
-            name: "Планирование дня",
-            description: "Составлять план на день",
+            name: "Daily Planning",
+            description: "Create a plan for the day",
             iconName: "list.bullet",
             colorHex: "#9B59B6",
             category: .work,
@@ -65,8 +65,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 5
         ),
         HabitTemplate(
-            name: "Изучение языка",
-            description: "Практика иностранного языка",
+            name: "Language Learning",
+            description: "Practice a foreign language",
             iconName: "globe",
             colorHex: "#E74C3C",
             category: .learning,
@@ -74,8 +74,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 6
         ),
         HabitTemplate(
-            name: "Спать 8 часов",
-            description: "Здоровый сон",
+            name: "Sleep 8 Hours",
+            description: "Healthy sleep",
             iconName: "moon.fill",
             colorHex: "#34495E",
             category: .health,
@@ -83,8 +83,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 7
         ),
         HabitTemplate(
-            name: "Прогулка",
-            description: "Прогулка на свежем воздухе",
+            name: "Walking",
+            description: "Walk in the fresh air",
             iconName: "figure.walk",
             colorHex: "#2ECC71",
             category: .health,
@@ -92,8 +92,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 5
         ),
         HabitTemplate(
-            name: "Вести дневник",
-            description: "Записывать мысли и события",
+            name: "Journaling",
+            description: "Write down thoughts and events",
             iconName: "book.closed.fill",
             colorHex: "#F39C12",
             category: .personal,
@@ -101,8 +101,8 @@ struct HabitTemplate: Identifiable {
             goalValue: 5
         ),
         HabitTemplate(
-            name: "Отказ от социальных сетей",
-            description: "Не использовать соцсети до вечера",
+            name: "No Social Media",
+            description: "Don't use social media until evening",
             iconName: "hand.raised.fill",
             colorHex: "#E67E22",
             category: .personal,
@@ -123,4 +123,6 @@ struct HabitTemplate: Identifiable {
         )
     }
 }
+
+
 

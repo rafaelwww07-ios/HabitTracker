@@ -2,7 +2,7 @@
 //  CreateHabitViewModel.swift
 //  HabitTracker
 //
-//  ViewModel для создания и редактирования привычки
+//  ViewModel for creating and editing habits
 //
 
 import Foundation
@@ -19,7 +19,7 @@ class CreateHabitViewModel: ObservableObject {
     @Published var goalType: GoalType = .daysPerWeek
     @Published var goalValue: Int16 = 7
     @Published var reminderTime: Date = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? Date()
-    @Published var reminderDays: Set<Int> = [2, 3, 4, 5, 6] // Понедельник - Пятница
+    @Published var reminderDays: Set<Int> = [2, 3, 4, 5, 6] // Monday - Friday
     @Published var isReminderEnabled: Bool = false
     
     let existingHabit: Habit?
@@ -44,7 +44,7 @@ class CreateHabitViewModel: ObservableObject {
         }
     }
     
-    /// Создать/обновить привычку
+    /// Create/update habit
     func saveHabit() -> Habit {
         let reminders: [HabitReminder] = isReminderEnabled ? [
             HabitReminder(
@@ -84,18 +84,18 @@ class CreateHabitViewModel: ObservableObject {
         }
     }
     
-    /// Проверка валидности данных
+    /// Data validation
     var isValid: Bool {
         !name.trimmingCharacters(in: .whitespaces).isEmpty && goalValue > 0
     }
     
-    /// Доступные цвета
+    /// Available colors
     let availableColors: [Color] = [
         .red, .orange, .yellow, .green, .mint, .teal,
         .cyan, .blue, .indigo, .purple, .pink, .brown
     ]
     
-    /// Доступные иконки
+    /// Available icons
     let availableIcons: [String] = [
         "star.fill", "heart.fill", "flame.fill", "leaf.fill",
         "figure.run", "dumbbell.fill", "book.fill", "pencil",

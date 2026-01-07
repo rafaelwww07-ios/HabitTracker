@@ -72,3 +72,6 @@ struct DailyMotivationWidget: View {
     .padding()
 }
 
+
+
+

@@ -1,33 +1,32 @@
 # Contributing to HabitTracker
 
-Спасибо за интерес к проекту HabitTracker! Мы рады любым вкладам.
+Thank you for your interest in HabitTracker! We welcome any contributions.
 
-## Как внести вклад
+## How to Contribute
 
-1. Fork проекта
-2. Создайте feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit ваши изменения (`git commit -m 'Add some AmazingFeature'`)
-4. Push в branch (`git push origin feature/AmazingFeature`)
-5. Откройте Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Стандарты кода
+## Code Standards
 
-- Следуйте архитектуре MVVM + Repository Pattern
-- Используйте SwiftUI для UI
-- Комментируйте сложные участки кода
-- Используйте осмысленные имена переменных и функций
-- Следуйте Swift Style Guide
+- Follow MVVM + Repository Pattern architecture
+- Use SwiftUI for UI
+- Comment complex code sections
+- Use meaningful variable and function names
+- Follow Swift Style Guide
 
-## Отчеты об ошибках
+## Bug Reports
 
-При создании issue, пожалуйста, укажите:
-- Версию iOS
-- Шаги для воспроизведения
-- Ожидаемое поведение
-- Фактическое поведение
-- Скриншоты (если применимо)
+When creating an issue, please include:
+- iOS version
+- Steps to reproduce
+- Expected behavior
+- Actual behavior
+- Screenshots (if applicable)
 
-## Предложения
+## Suggestions
 
-Мы открыты для любых предложений по улучшению! Пожалуйста, создавайте issue для обсуждения перед началом работы над крупными изменениями.
-
+We're open to any suggestions for improvement! Please create an issue for discussion before starting work on major changes.

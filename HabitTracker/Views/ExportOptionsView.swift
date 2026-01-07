@@ -2,7 +2,7 @@
 //  ExportOptionsView.swift
 //  HabitTracker
 //
-//  Экран с опциями экспорта
+//  Export options screen
 //
 
 import SwiftUI
@@ -31,50 +31,50 @@ struct ExportOptionsView: View {
                     Button(action: {
                         exportToPDF()
                     }) {
-                        Label("Экспорт в PDF", systemImage: "doc.fill")
+                        Label("Export to PDF", systemImage: "doc.fill")
                     }
                     
                     Button(action: {
                         exportToCSV()
                     }) {
-                        Label("Экспорт в CSV", systemImage: "tablecells.fill")
+                        Label("Export to CSV", systemImage: "tablecells.fill")
                     }
                     
                     Button(action: {
                         exportToJSON()
                     }) {
-                        Label("Экспорт в JSON", systemImage: "doc.text.fill")
+                        Label("Export to JSON", systemImage: "doc.text.fill")
                     }
                 } header: {
-                    Text("Файлы")
+                    Text("Files")
                 }
                 
                 Section {
                     Button(action: {
                         showCalendarExport = true
                     }) {
-                        Label("Экспорт в календарь", systemImage: "calendar")
+                        Label("Export to Calendar", systemImage: "calendar")
                     }
                     
                     Button(action: {
                         exportAsImage()
                     }) {
-                        Label("Экспорт как изображение", systemImage: "photo.fill")
+                        Label("Export as Image", systemImage: "photo.fill")
                     }
                 } header: {
-                    Text("Интеграции")
+                    Text("Integrations")
                 }
             }
-            .navigationTitle(habit == nil ? "Экспорт данных" : "Экспорт привычки")
+            .navigationTitle(habit == nil ? "Export Data" : "Export Habit")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Готово") {
+                    Button("Done") {
                         dismiss()
                     }
                 }
             }
-            .alert("Экспорт", isPresented: $showAlert) {
+            .alert("Export", isPresented: $showAlert) {
                 Button("OK") {}
             } message: {
                 if let message = exportMessage {
@@ -92,10 +92,10 @@ struct ExportOptionsView: View {
     private func exportToPDF() {
         if let url = PDFExportService.shared.createPDFReport(habits: habitsToExport) {
             ShareService.shared.share(items: [url], from: nil)
-            exportMessage = "PDF отчет создан успешно"
+            exportMessage = "PDF report created successfully"
             showAlert = true
         } else {
-            exportMessage = "Ошибка создания PDF отчета"
+            exportMessage = "Error creating PDF report"
             showAlert = true
         }
     }
@@ -104,7 +104,7 @@ struct ExportOptionsView: View {
         let csv = ExportService.shared.exportToCSV(habits: habitsToExport)
         if let url = ExportService.shared.saveFile(content: csv, filename: "habits_\(Date().timeIntervalSince1970).csv") {
             ShareService.shared.share(items: [url], from: nil)
-            exportMessage = "CSV файл создан успешно"
+            exportMessage = "CSV file created successfully"
             showAlert = true
         }
     }
@@ -114,20 +114,20 @@ struct ExportOptionsView: View {
             let jsonData = try ExportService.shared.exportToJSON(habits: habitsToExport)
             if let url = ExportService.shared.saveData(data: jsonData, filename: "habits_\(Date().timeIntervalSince1970).json") {
                 ShareService.shared.share(items: [url], from: nil)
-                exportMessage = "JSON файл создан успешно"
+                exportMessage = "JSON file created successfully"
                 showAlert = true
             }
         } catch {
-            exportMessage = "Ошибка экспорта JSON: \(error.localizedDescription)"
+            exportMessage = "Error exporting JSON: \(error.localizedDescription)"
             showAlert = true
         }
     }
     
     private func exportAsImage() {
-        // Создаем изображение статистики
+        // Create statistics image
         if let image = ShareService.shared.createStatisticsImage(habits: habitsToExport) {
             ShareService.shared.share(items: [image], from: nil)
-            exportMessage = "Изображение создано успешно"
+            exportMessage = "Image created successfully"
             showAlert = true
         }
     }
@@ -147,17 +147,17 @@ struct CalendarExportView: View {
                     .font(.system(size: 60))
                     .foregroundColor(.blue)
                 
-                Text("Экспорт в календарь")
+                Text("Export to Calendar")
                     .font(.title2)
                     .fontWeight(.bold)
                 
-                Text("Все выполнения привычки \"\(habit.name)\" будут добавлены в ваш календарь iOS")
+                Text("All completions of \"\(habit.name)\" will be added to your iOS calendar")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                 
-                Text("Событий для создания: \(habit.completions.count)")
+                Text("Events to create: \(habit.completions.count)")
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
@@ -167,7 +167,7 @@ struct CalendarExportView: View {
                     Button(action: {
                         exportToCalendar()
                     }) {
-                        Text("Экспортировать")
+                        Text("Export")
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
@@ -179,18 +179,18 @@ struct CalendarExportView: View {
                 }
             }
             .padding()
-            .navigationTitle("Календарь")
+            .navigationTitle("Calendar")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Отмена") {
+                    Button("Cancel") {
                         dismiss()
                     }
                 }
             }
-            .alert("Экспорт", isPresented: $showAlert) {
+            .alert("Export", isPresented: $showAlert) {
                 Button("OK") {
-                    if exportMessage?.contains("успешно") == true {
+                    if exportMessage?.contains("successfully") == true {
                         dismiss()
                     }
                 }
@@ -206,7 +206,7 @@ struct CalendarExportView: View {
         isExporting = true
         CalendarExportService.shared.exportToCalendar(habit: habit) { success, message in
             isExporting = false
-            exportMessage = success ? "Экспорт завершен успешно! События добавлены в календарь." : (message ?? "Ошибка экспорта")
+            exportMessage = success ? "Export completed successfully! Events added to calendar." : (message ?? "Export error")
             showAlert = true
         }
     }
@@ -215,4 +215,6 @@ struct CalendarExportView: View {
 #Preview {
     ExportOptionsView(habit: nil, allHabits: [])
 }
+
+
 

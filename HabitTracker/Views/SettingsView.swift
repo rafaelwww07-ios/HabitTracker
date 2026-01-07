@@ -2,7 +2,7 @@
 //  SettingsView.swift
 //  HabitTracker
 //
-//  Экран настроек
+//  Settings screen
 //
 
 import SwiftUI
@@ -16,36 +16,36 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                // Тема оформления
-                Section("Внешний вид") {
-                    Picker("Тема", selection: $themeManager.currentTheme) {
+                // Theme
+                Section("Appearance") {
+                    Picker("Theme", selection: $themeManager.currentTheme) {
                         ForEach(AppTheme.allCases, id: \.self) { theme in
                             Text(theme.rawValue).tag(theme)
                         }
                     }
                 }
                 
-                // Данные
-                Section("Данные") {
+                // Data
+                Section("Data") {
                     NavigationLink(destination: ExportOptionsView(habit: nil, allHabits: habits)) {
-                        Label("Экспорт данных", systemImage: "square.and.arrow.up")
+                        Label("Export data", systemImage: "square.and.arrow.up")
                     }
                     
                     Button(action: {
                         showImportOptions = true
                     }) {
-                        Label("Импорт данных", systemImage: "square.and.arrow.down")
+                        Label("Import data", systemImage: "square.and.arrow.down")
                     }
                     
                     NavigationLink(destination: BackupView(habits: habits)) {
-                        Label("Резервное копирование", systemImage: "icloud.fill")
+                        Label("Backup", systemImage: "icloud.fill")
                     }
                 }
                 
-                // О приложении
-                Section("О приложении") {
+                // About
+                Section("About") {
                     HStack {
-                        Text("Версия")
+                        Text("Version")
                         Spacer()
                         Text("1.0.0")
                             .foregroundColor(.secondary)
@@ -53,20 +53,20 @@ struct SettingsView: View {
                     
                     // TODO: Add support URL
                     // Link(destination: URL(string: "https://example.com")!) {
-                    //     Label("Поддержка", systemImage: "questionmark.circle")
+                    //     Label("Support", systemImage: "questionmark.circle")
                     // }
                     
                     // TODO: Add privacy policy URL
                     // Link(destination: URL(string: "https://example.com/privacy")!) {
-                    //     Label("Политика конфиденциальности", systemImage: "hand.raised.fill")
+                    //     Label("Privacy Policy", systemImage: "hand.raised.fill")
                     // }
                 }
             }
-            .navigationTitle("Настройки")
+            .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Готово") {
+                    Button("Done") {
                         dismiss()
                     }
                 }

@@ -282,3 +282,6 @@ struct BadgeView: View {
     ProfileView(habits: [])
 }
 
+
+
+

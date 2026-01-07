@@ -1,176 +1,178 @@
 # HabitTracker 📱
 
-> Мотивационное iOS приложение для отслеживания привычек с геймификацией, расширенной аналитикой и множеством функций
+> Motivational iOS app for habit tracking with gamification, advanced analytics, and numerous features
 
 [![Swift](https://img.shields.io/badge/Swift-5.7+-orange.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-16.0+-blue.svg)](https://developer.apple.com/ios/)
 [![SwiftUI](https://img.shields.io/badge/SwiftUI-4.0-green.svg)](https://developer.apple.com/xcode/swiftui/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-Полнофункциональное iOS приложение для отслеживания привычек с мотивационной системой, геймификацией и расширенной аналитикой. Создано с использованием SwiftUI и следует лучшим практикам iOS разработки.
+A full-featured iOS application for tracking habits with a motivational system, gamification, and advanced analytics. Built using SwiftUI and following iOS development best practices.
 
-**Автор:** Rafael Mukhametov
+**Author:** Rafael Mukhametov
 
-## ✨ Основные возможности
+## 📸 Screenshots
 
-### 📝 Отслеживание привычек
-- ✅ Создание и управление привычками с полной кастомизацией
-- ✅ Календарь прогресса и визуализация
-- ✅ Система стриков (дней подряд) с анимациями
-- ✅ Примечания к выполнению
-- ✅ Категории и поиск/фильтрация (6 типов фильтров)
-- ✅ Архивирование и дублирование привычек
-- ✅ 10 предустановленных шаблонов привычек
+<div align="center">
+  <img src="docs/images/app-screenshot.png" alt="HabitTracker App Screenshot" width="800">
+  <p><em>Main screen with habits list and achievements view</em></p>
+</div>
 
-### 🏆 Геймификация
-- 🎮 Система баллов и уровней
-- 🎯 Челленджи (30-дневные вызовы, 5 типов)
-- 🏅 8 типов достижений с автоматической проверкой
-- ⭐ Бейджи и награды
-- 📊 Еженедельный обзор с наградами
+## ✨ Key Features
 
-### 📊 Аналитика и статистика
-- 📈 Детальная статистика по привычкам
-- 📉 Расширенная аналитика с прогнозами
-- 🔥 Heat Map календарь активности (годовой обзор)
-- 🕐 Статистика по времени суток
-- 💡 Персонализированные инсайты и рекомендации
-- 📊 Сравнение периодов (месяц vs месяц)
-- 📆 Кастомные периоды для анализа
-- 📈 Тренды и прогнозы на основе данных
+### 📝 Habit Tracking
+- ✅ Create and manage habits with full customization
+- ✅ Progress calendar and visualization
+- ✅ Streak system (consecutive days) with animations
+- ✅ Completion notes
+- ✅ Categories and search/filtering (6 filter types)
+- ✅ Archiving and duplicating habits
+- ✅ 10 predefined habit templates
 
-### 💬 Мотивация
-- ✨ Ежедневные мотивационные цитаты (15+ цитат)
-- 🔔 Настраиваемые напоминания (множественные)
-- 🎉 Анимации достижений
-- 📱 Виджет мотивации на главном экране
-- 🎊 Персонализированные сообщения
+### 🏆 Gamification
+- 🎮 Points and levels system
+- 🎯 Challenges (30-day challenges, 5 types)
+- 🏅 8 types of achievements with automatic checking
+- ⭐ Badges and rewards
+- 📊 Weekly review with rewards
 
-### 💾 Экспорт и интеграции
-- 📄 Экспорт в CSV, JSON, PDF
-- 📅 Интеграция с календарем iOS (автоматический экспорт)
-- ❤️ Интеграция с HealthKit (шаги, калории)
-- 📤 Шаринг достижений и статистики
-- ☁️ Резервное копирование и восстановление
+### 📊 Analytics & Statistics
+- 📈 Detailed statistics per habit
+- 📉 Advanced analytics with predictions
+- 🔥 Heat Map activity calendar (yearly overview)
+- 🕐 Time-of-day statistics
+- 💡 Personalized insights and recommendations
+- 📊 Period comparison (month vs month)
+- 📆 Custom periods for analysis
+- 📈 Trends and forecasts based on data
 
-### 🗂️ Организация
-- 📁 Группы привычек (папки)
-- ⚡ Триггеры привычек (if-then логика)
-- 📋 Шаблоны привычек для быстрого создания
-- 🎨 6 тем оформления
-- 🔍 Умный поиск и фильтрация
+### 💬 Motivation
+- ✨ Daily motivational quotes (15+ quotes)
+- 🔔 Customizable reminders (multiple)
+- 🎉 Achievement animations
+- 📱 Motivation widget on main screen
+- 🎊 Personalized messages
 
-## 🏗️ Архитектура
+### 💾 Export & Integrations
+- 📄 Export to CSV, JSON, PDF
+- 📅 iOS Calendar integration (automatic export)
+- ❤️ HealthKit integration (steps, calories)
+- 📤 Sharing achievements and statistics
+- ☁️ Backup and restore
 
-- **Паттерн**: MVVM + Repository Pattern
-- **Хранение данных**: Core Data
+### 🗂️ Organization
+- 📁 Habit groups (folders)
+- ⚡ Habit triggers (if-then logic)
+- 📋 Habit templates for quick creation
+- 🎨 6 themes
+- 🔍 Smart search and filtering
+
+## 🏗️ Architecture
+
+- **Pattern**: MVVM + Repository Pattern
+- **Data Storage**: Core Data
 - **UI Framework**: SwiftUI
-- **Минимальная версия**: iOS 16.0+
-- **Язык**: Swift 5.7+
+- **Minimum Version**: iOS 16.0+
+- **Language**: Swift 5.7+
 
-## 📱 Основные экраны (21 экран)
+## 📱 Main Screens (25 screens)
 
-- **Главный экран** - сетка привычек с прогресс-кругами
-- **Детали привычки** - календарь, статистика, графики, Heat Map
-- **Создание/редактирование** - полная настройка привычки
-- **Статистика** - общая статистика и аналитика
-- **Профиль** - прогресс, уровень, бейджи
-- **Челленджи** - участие в вызовах
-- **Дашборд** - обзор ключевых метрик
-- **Настройки** - темы, экспорт, резервное копирование
-- И еще 13 специализированных экранов
+- **Main Screen** - habit grid with progress circles
+- **Habit Details** - calendar, statistics, charts, Heat Map
+- **Create/Edit** - full habit configuration
+- **Statistics** - overall statistics and analytics
+- **Profile** - progress, level, badges
+- **Challenges** - participate in challenges
+- **Dashboard** - overview of key metrics
+- **Settings** - themes, export, backup
+- And 17 more specialized screens
 
-## 🎨 Технологии
+## 🎨 Technologies
 
-- **SwiftUI** - современный декларативный UI
-- **Core Data** - персистентность данных
-- **Combine** - реактивное программирование
-- **Charts** - визуализация данных
-- **UserNotifications** - локальные уведомления
-- **HealthKit** - интеграция со здоровьем
-- **EventKit** - интеграция с календарем
-- **PDFKit** - генерация PDF отчетов
+- **SwiftUI** - modern declarative UI
+- **Core Data** - data persistence
+- **Combine** - reactive programming
+- **Charts** - data visualization
+- **UserNotifications** - local notifications
+- **HealthKit** - health integration
+- **EventKit** - calendar integration
+- **PDFKit** - PDF report generation
 
-## 🚀 Требования
+## 🚀 Requirements
 
 - iOS 16.0+
 - Xcode 14.0+
 - Swift 5.7+
 
-## 🔧 Установка
+## 🔧 Installation
 
-### Клонирование репозитория
+### Clone the Repository
 
 ```bash
 git clone https://github.com/rafaelwww07-ios/HabitTracker.git
 cd HabitTracker
 ```
 
-### Открытие проекта
+### Open the Project
 
 ```bash
 open HabitTracker.xcodeproj
 ```
 
-### Запуск
+### Run
 
-1. Выберите симулятор или подключенное устройство
-2. Нажмите Run (⌘R) или кликните на кнопку Play
+1. Select a simulator or connected device
+2. Press Run (⌘R) or click the Play button
 
-## 📦 Структура проекта
+## 📦 Project Structure
 
-Основная структура:
+Main structure:
 ```
 HabitTracker/
-├── CoreData/              # Core Data настройка
-├── Models/                # Модели данных (11 файлов)
-├── Repository/            # Слой доступа к данным
-├── Services/              # Сервисы (15 файлов)
-├── ViewModels/            # ViewModels для MVVM
-└── Views/                 # SwiftUI Views (21 экран)
-    └── Components/        # Переиспользуемые компоненты (9)
+├── CoreData/              # Core Data setup
+├── Models/                # Data models (11 files)
+├── Repository/            # Data access layer
+├── Services/              # Services (15 files)
+├── ViewModels/            # ViewModels for MVVM
+└── Views/                 # SwiftUI Views (25 screens)
+    └── Components/        # Reusable components (9)
 ```
 
-## 📸 Скриншоты
+## 🤝 Contributing
 
-_Добавьте скриншоты приложения здесь_
+We welcome contributions to the project! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before getting started.
 
-## 🤝 Вклад в проект
+## 📄 License
 
-Мы приветствуем вклад в проект! Пожалуйста, ознакомьтесь с [CONTRIBUTING.md](CONTRIBUTING.md) перед началом работы.
+This project is available under the MIT license. See [LICENSE](LICENSE) for details.
 
-## 📄 Лицензия
-
-Этот проект доступен по лицензии MIT. См. [LICENSE](LICENSE) для деталей.
-
-## 🏷️ Теги
+## 🏷️ Tags
 
 `swift` `swiftui` `ios` `habit-tracker` `mvvm` `core-data` `gamification` `analytics` `motivation` `productivity` `healthkit` `charts` `swiftui-charts` `habit-forming` `goal-tracking` `streaks` `achievements` `challenges`
 
-## 📊 Статистика проекта
+## 📊 Project Statistics
 
-- **68** Swift файлов
-- **25** экранов
-- **15** сервисов
-- **9** переиспользуемых компонентов
-- **21** основной экран
-- **60+** функций
+- **68** Swift files
+- **25** screens
+- **15** services
+- **9** reusable components
+- **60+** features
 
-## 🔮 Планы на будущее
+## 🔮 Future Plans
 
-- [ ] Виджеты для главного экрана iOS (WidgetKit)
-- [ ] Siri Shortcuts интеграция
-- [ ] iCloud синхронизация
-- [ ] Социальные функции (шаринг прогресса)
-- [ ] Темные темы с акцентами
-- [ ] Фото-вложения к выполнению
+- [ ] iOS home screen widgets (WidgetKit)
+- [ ] Siri Shortcuts integration
+- [ ] iCloud synchronization
+- [ ] Social features (progress sharing)
+- [ ] Dark themes with accents
+- [ ] Photo attachments to completions
 
-## 👤 Автор
+## 👤 Author
 
 **Rafael Mukhametov**
 
-Создано с ❤️ используя SwiftUI
+Made with ❤️ using SwiftUI
 
 ---
 
-**Примечание**: Это open-source проект для отслеживания привычек. Для использования в продакшене рекомендуется дополнительное тестирование и оптимизация.
+**Note**: This is an open-source project for habit tracking. For production use, additional testing and optimization are recommended.

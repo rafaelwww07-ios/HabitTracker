@@ -244,3 +244,6 @@ struct InsightCard: View {
     InsightsView(habits: [])
 }
 
+
+
+

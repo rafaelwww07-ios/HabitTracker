@@ -2,7 +2,7 @@
 //  OnboardingView.swift
 //  HabitTracker
 //
-//  Экран онбординга для новых пользователей
+//  Onboarding screen for new users
 //
 
 import SwiftUI
@@ -13,26 +13,26 @@ struct OnboardingView: View {
     
     let pages = [
         OnboardingPage(
-            title: "Добро пожаловать!",
-            description: "Начните свой путь к лучшей версии себя",
+            title: "Welcome!",
+            description: "Start your journey to a better version of yourself",
             icon: "sparkles",
             color: .blue
         ),
         OnboardingPage(
-            title: "Отслеживайте привычки",
-            description: "Создавайте привычки, отмечайте выполнение и следите за прогрессом",
+            title: "Track Habits",
+            description: "Create habits, mark completions, and track your progress",
             icon: "checkmark.circle.fill",
             color: .green
         ),
         OnboardingPage(
-            title: "Зарабатывайте баллы",
-            description: "Получайте баллы за выполнение и повышайте свой уровень",
+            title: "Earn Points",
+            description: "Get points for completions and level up",
             icon: "star.fill",
             color: .yellow
         ),
         OnboardingPage(
-            title: "Достигайте целей",
-            description: "Участвуйте в челленджах и разблокируйте достижения",
+            title: "Achieve Goals",
+            description: "Join challenges and unlock achievements",
             icon: "trophy.fill",
             color: .orange
         )
@@ -63,7 +63,7 @@ struct OnboardingView: View {
                             UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
                             isPresented = false
                         }) {
-                            Text("Начать")
+                            Text("Get Started")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
@@ -84,7 +84,7 @@ struct OnboardingView: View {
                                 currentPage += 1
                             }
                         }) {
-                            Text("Далее")
+                            Text("Next")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
@@ -137,4 +137,6 @@ struct OnboardingPageView: View {
 #Preview {
     OnboardingView(isPresented: .constant(true))
 }
+
+
 

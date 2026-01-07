@@ -2,7 +2,7 @@
 //  Achievement.swift
 //  HabitTracker
 //
-//  Модель достижения
+//  Achievement model
 //
 
 import Foundation
@@ -21,42 +21,42 @@ enum AchievementType: String, CaseIterable {
     var title: String {
         switch self {
         case .firstHabit:
-            return "Первая привычка"
+            return "First Habit"
         case .weekStreak:
-            return "Неделя подряд"
+            return "Week Streak"
         case .monthStreak:
-            return "Месяц подряд"
+            return "Month Streak"
         case .quarterStreak:
-            return "Квартал подряд"
+            return "Quarter Streak"
         case .yearStreak:
-            return "Год подряд"
+            return "Year Streak"
         case .perfectWeek:
-            return "Идеальная неделя"
+            return "Perfect Week"
         case .perfectMonth:
-            return "Идеальный месяц"
+            return "Perfect Month"
         case .hundredCompletions:
-            return "Сотня выполнений"
+            return "Hundred Completions"
         }
     }
     
     var description: String {
         switch self {
         case .firstHabit:
-            return "Создайте свою первую привычку"
+            return "Create your first habit"
         case .weekStreak:
-            return "Держите стрик 7 дней подряд"
+            return "Keep a streak for 7 days"
         case .monthStreak:
-            return "Держите стрик 30 дней подряд"
+            return "Keep a streak for 30 days"
         case .quarterStreak:
-            return "Держите стрик 90 дней подряд"
+            return "Keep a streak for 90 days"
         case .yearStreak:
-            return "Держите стрик 365 дней подряд"
+            return "Keep a streak for 365 days"
         case .perfectWeek:
-            return "Выполните все цели на неделе"
+            return "Complete all goals for the week"
         case .perfectMonth:
-            return "Выполните все цели в месяце"
+            return "Complete all goals for the month"
         case .hundredCompletions:
-            return "Выполните привычку 100 раз"
+            return "Complete a habit 100 times"
         }
     }
     
@@ -108,7 +108,7 @@ struct Achievement: Identifiable, Hashable {
     let type: AchievementType
     let habitId: UUID?
     let unlockedAt: Date
-    let value: Int? // Дополнительное значение (например, количество дней)
+    let value: Int? // Additional value (e.g., number of days)
     
     init(
         id: UUID = UUID(),
@@ -124,4 +124,6 @@ struct Achievement: Identifiable, Hashable {
         self.value = value
     }
 }
+
+
 

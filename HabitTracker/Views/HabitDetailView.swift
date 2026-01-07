@@ -2,7 +2,7 @@
 //  HabitDetailView.swift
 //  HabitTracker
 //
-//  Экран деталей привычки с календарем, статистикой и графиком
+//  Habit detail screen with calendar, statistics, and chart
 //
 
 import SwiftUI
@@ -27,19 +27,19 @@ struct HabitDetailView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
-                    // Заголовок с информацией о привычке
+                    // Header with habit information
                     headerSection
                     
-                    // Статистика
+                    // Statistics
                     statsSection
                     
-                    // Календарь прогресса
+                    // Progress calendar
                     calendarSection
                     
-                    // График прогресса
+                    // Progress chart
                     chartSection
                     
-                    // История
+                    // History
                     historySection
                 }
                 .padding()
@@ -61,7 +61,7 @@ struct HabitDetailView: View {
                     }) {
                         HStack {
                             Image(systemName: viewModel.habit.isCompletedToday() ? "checkmark.circle.fill" : "circle")
-                            Text(viewModel.habit.isCompletedToday() ? "Выполнено" : "Отметить")
+                            Text(viewModel.habit.isCompletedToday() ? "Completed" : "Mark")
                         }
                         .foregroundColor(viewModel.habit.color)
                     }
@@ -72,13 +72,13 @@ struct HabitDetailView: View {
                         Button(action: {
                             showHeatMap = true
                         }) {
-                            Label("Heat Map календарь", systemImage: "calendar")
+                            Label("Heat Map Calendar", systemImage: "calendar")
                         }
                         
                         Button(action: {
                             showCustomPeriod = true
                         }) {
-                            Label("Кастомный период", systemImage: "calendar.badge.clock")
+                            Label("Custom Period", systemImage: "calendar.badge.clock")
                         }
                         
                         Divider()
@@ -86,7 +86,7 @@ struct HabitDetailView: View {
                         Button(action: {
                             showExportOptions = true
                         }) {
-                            Label("Экспорт", systemImage: "square.and.arrow.up")
+                            Label("Export", systemImage: "square.and.arrow.up")
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle.fill")
@@ -140,21 +140,21 @@ struct HabitDetailView: View {
     private var statsSection: some View {
         HStack(spacing: 16) {
             StatCardView(
-                title: "Текущий стрик",
+                title: "Current Streak",
                 value: "\(viewModel.currentStreak)",
                 icon: "flame.fill",
                 color: .orange
             )
             
             StatCardView(
-                title: "Лучший стрик",
+                title: "Best Streak",
                 value: "\(viewModel.bestStreak)",
                 icon: "star.fill",
                 color: .yellow
             )
             
             StatCardView(
-                title: "Успех",
+                title: "Success Rate",
                 value: "\(Int(viewModel.successRate))%",
                 icon: "checkmark.circle.fill",
                 color: .green
@@ -164,7 +164,7 @@ struct HabitDetailView: View {
     
     private var calendarSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Календарь прогресса")
+            Text("Progress Calendar")
                 .font(.headline)
             
             ProgressCalendarView(
@@ -182,11 +182,11 @@ struct HabitDetailView: View {
     
     private var chartSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Прогресс по неделям")
+            Text("Weekly Progress")
                 .font(.headline)
             
             if viewModel.weeklyStats.isEmpty {
-                Text("Недостаточно данных")
+                Text("Not enough data")
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity, minHeight: 200)
             } else {
@@ -206,14 +206,14 @@ struct HabitDetailView: View {
     
     private var historySection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Последние выполнения")
+            Text("Recent Completions")
                 .font(.headline)
             
             let sortedCompletions = viewModel.habit.completions.sorted { $0.completedAt > $1.completedAt }
             let recentCompletions = Array(sortedCompletions.prefix(10))
             
                     if recentCompletions.isEmpty {
-                        Text("Пока нет выполнений")
+                        Text("No completions yet")
                             .foregroundColor(.secondary)
                             .padding()
                     } else {

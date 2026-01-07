@@ -241,3 +241,6 @@ struct TemplateChallengeCard: View {
     ChallengesView(availableHabits: [])
 }
 
+
+
+

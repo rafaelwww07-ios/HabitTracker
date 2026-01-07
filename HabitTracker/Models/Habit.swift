@@ -2,14 +2,14 @@
 //  Habit.swift
 //  HabitTracker
 //
-//  Доменная модель привычки
+//  Domain model for habits
 //
 
 import Foundation
 import SwiftUI
 import UIKit
 
-/// Тип цели привычки
+/// Habit goal type
 enum GoalType: Int16, CaseIterable {
     case daysPerWeek = 0
     case consecutiveDays = 1
@@ -17,14 +17,14 @@ enum GoalType: Int16, CaseIterable {
     var description: String {
         switch self {
         case .daysPerWeek:
-            return "Дней в неделю"
+            return "Days per week"
         case .consecutiveDays:
-            return "Дней подряд"
+            return "Consecutive days"
         }
     }
 }
 
-/// Модель привычки
+/// Habit model
 struct Habit: Identifiable, Hashable {
     let id: UUID
     var name: String
@@ -71,7 +71,7 @@ struct Habit: Identifiable, Hashable {
         self.reminders = reminders
     }
     
-    /// Проверка выполнения на сегодня
+    /// Check if completed today
     func isCompletedToday() -> Bool {
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
@@ -80,7 +80,7 @@ struct Habit: Identifiable, Hashable {
         }
     }
     
-    /// Текущий стрик (дней подряд)
+    /// Current streak (consecutive days)
     func currentStreak() -> Int {
         let calendar = Calendar.current
         let sortedCompletions = completions.sorted { $0.completedAt > $1.completedAt }
@@ -90,7 +90,7 @@ struct Habit: Identifiable, Hashable {
         var streak = 0
         var currentDate = calendar.startOfDay(for: Date())
         
-        // Если сегодня не выполнено, начинаем с вчера
+        // If not completed today, start from yesterday
         if !isCompletedToday() {
             currentDate = calendar.date(byAdding: .day, value: -1, to: currentDate) ?? currentDate
         }
@@ -106,7 +106,7 @@ struct Habit: Identifiable, Hashable {
                     break
                 }
             } else if completionDate < currentDate {
-                // Пропущены дни - стрик прерван
+                // Days missed - streak broken
                 break
             }
         }
@@ -114,7 +114,7 @@ struct Habit: Identifiable, Hashable {
         return streak
     }
     
-    /// Процент выполнения за текущую неделю
+    /// Completion percentage for current week
     func weeklyCompletionPercentage() -> Double {
         let calendar = Calendar.current
         let today = Date()
@@ -132,7 +132,7 @@ struct Habit: Identifiable, Hashable {
         return Double(weekCompletions.count) / Double(goalValue) * 100.0
     }
     
-    /// Процент выполнения за все время
+    /// Completion percentage for all time
     func overallCompletionPercentage() -> Double {
         let calendar = Calendar.current
         let daysSinceCreation = calendar.dateComponents([.day], from: createdAt, to: Date()).day ?? 1
@@ -142,7 +142,7 @@ struct Habit: Identifiable, Hashable {
     }
 }
 
-/// Модель выполнения привычки
+/// Habit completion model
 struct HabitCompletion: Identifiable, Hashable {
     let id: UUID
     let habitId: UUID
@@ -157,12 +157,12 @@ struct HabitCompletion: Identifiable, Hashable {
     }
 }
 
-/// Модель напоминания
+/// Reminder model
 struct HabitReminder: Identifiable, Hashable {
     let id: UUID
     let habitId: UUID
     var time: Date
-    var daysOfWeek: Set<Int> // 1 = воскресенье, 2 = понедельник, ..., 7 = суббота
+    var daysOfWeek: Set<Int> // 1 = Sunday, 2 = Monday, ..., 7 = Saturday
     var isEnabled: Bool
     
     init(
@@ -180,7 +180,7 @@ struct HabitReminder: Identifiable, Hashable {
     }
 }
 
-/// Расширение Color для работы с HEX
+/// Color extension for HEX support
 extension Color {
     init?(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

@@ -2,7 +2,7 @@
 //  AchievementsView.swift
 //  HabitTracker
 //
-//  Экран достижений
+//  Achievements screen
 //
 
 import SwiftUI
@@ -16,10 +16,10 @@ struct AchievementsView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
-                    // Статистика
+                    // Statistics
                     statsHeader
                     
-                    // Список достижений
+                    // Achievements list
                     achievementsList
                 }
                 .padding()
@@ -32,7 +32,7 @@ struct AchievementsView: View {
                 )
                 .ignoresSafeArea()
             )
-            .navigationTitle("Достижения")
+            .navigationTitle("Achievements")
             .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 checkAchievements()
@@ -52,7 +52,7 @@ struct AchievementsView: View {
                     )
                 )
             
-            Text("Достижений разблокировано")
+            Text("Achievements Unlocked")
                 .font(.headline)
                 .foregroundColor(.secondary)
         }
@@ -148,4 +148,6 @@ struct AchievementRowView: View {
 #Preview {
     AchievementsView(habits: [])
 }
+
+
 

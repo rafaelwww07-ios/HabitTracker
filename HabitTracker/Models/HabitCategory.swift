@@ -2,22 +2,22 @@
 //  HabitCategory.swift
 //  HabitTracker
 //
-//  Категории привычек
+//  Habit categories
 //
 
 import Foundation
 import SwiftUI
 
 enum HabitCategory: String, CaseIterable, Identifiable {
-    case health = "Здоровье"
-    case fitness = "Фитнес"
-    case learning = "Обучение"
-    case work = "Работа"
-    case personal = "Личное"
-    case social = "Социальное"
-    case creativity = "Творчество"
-    case finance = "Финансы"
-    case other = "Другое"
+    case health = "Health"
+    case fitness = "Fitness"
+    case learning = "Learning"
+    case work = "Work"
+    case personal = "Personal"
+    case social = "Social"
+    case creativity = "Creativity"
+    case finance = "Finance"
+    case other = "Other"
     
     var id: String { rawValue }
     
@@ -67,4 +67,6 @@ enum HabitCategory: String, CaseIterable, Identifiable {
         }
     }
 }
+
+
 

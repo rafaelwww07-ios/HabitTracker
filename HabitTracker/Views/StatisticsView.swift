@@ -2,7 +2,7 @@
 //  StatisticsView.swift
 //  HabitTracker
 //
-//  Экран общей статистики
+//  Overall statistics screen
 //
 
 import SwiftUI
@@ -15,13 +15,13 @@ struct StatisticsView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
-                    // Общая статистика
+                    // Overall statistics
                     overallStats
                     
-                    // Прогресс по привычкам
+                    // Habits progress
                     habitsProgress
                     
-                    // Топ привычек
+                    // Top habits
                     topHabits
                 }
                 .padding()
@@ -34,27 +34,27 @@ struct StatisticsView: View {
                 )
                 .ignoresSafeArea()
             )
-            .navigationTitle("Статистика")
+            .navigationTitle("Statistics")
             .navigationBarTitleDisplayMode(.large)
         }
     }
     
     private var overallStats: some View {
         VStack(spacing: 16) {
-            Text("Общая статистика")
+            Text("Overall Statistics")
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack(spacing: 16) {
                 StatCard(
-                    title: "Всего привычек",
+                    title: "Total Habits",
                     value: "\(habits.count)",
                     icon: "list.bullet",
                     color: .blue
                 )
                 
                 StatCard(
-                    title: "Всего выполнений",
+                    title: "Total Completions",
                     value: "\(totalCompletions)",
                     icon: "checkmark.circle.fill",
                     color: .green
@@ -63,14 +63,14 @@ struct StatisticsView: View {
             
             HStack(spacing: 16) {
                 StatCard(
-                    title: "Средний стрик",
+                    title: "Average Streak",
                     value: String(format: "%.0f", averageStreak),
                     icon: "flame.fill",
                     color: .orange
                 )
                 
                 StatCard(
-                    title: "Процент успеха",
+                    title: "Success Rate",
                     value: String(format: "%.0f%%", overallSuccessRate),
                     icon: "chart.bar.fill",
                     color: .purple
@@ -233,4 +233,6 @@ struct StatCard: View {
 #Preview {
     StatisticsView(habits: [])
 }
+
+
 

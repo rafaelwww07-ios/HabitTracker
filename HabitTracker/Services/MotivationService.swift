@@ -2,7 +2,7 @@
 //  MotivationService.swift
 //  HabitTracker
 //
-//  Сервис мотивационных цитат
+//  Motivational quotes service
 //
 
 import Foundation
@@ -12,21 +12,21 @@ struct MotivationalQuote {
     let author: String?
     
     static let quotes: [MotivationalQuote] = [
-        MotivationalQuote(text: "Успех — это сумма небольших усилий, повторяемых изо дня в день.", author: "Роберт Коллье"),
-        MotivationalQuote(text: "Привычка — это вторая натура.", author: "Аристотель"),
-        MotivationalQuote(text: "Не сдавайся. Обычно ключ поворачивается на последней попытке.", author: nil),
-        MotivationalQuote(text: "Лучшее время для посадки дерева было 20 лет назад. Следующее лучшее время — сейчас.", author: "Китайская мудрость"),
-        MotivationalQuote(text: "Постоянство — это секрет успеха.", author: nil),
-        MotivationalQuote(text: "Мы то, что мы делаем постоянно. Совершенство, следовательно, не действие, а привычка.", author: "Аристотель"),
-        MotivationalQuote(text: "Маленькие изменения со временем приводят к большим результатам.", author: nil),
-        MotivationalQuote(text: "Не ждите идеального момента. Начните прямо сейчас.", author: nil),
-        MotivationalQuote(text: "Победа принадлежит тем, кто настойчив.", author: nil),
-        MotivationalQuote(text: "Путь в тысячу миль начинается с одного шага.", author: "Лао-цзы"),
-        MotivationalQuote(text: "Каждый день — это новый шанс стать лучше.", author: nil),
-        MotivationalQuote(text: "Привычки формируют характер, характер определяет судьбу.", author: nil),
-        MotivationalQuote(text: "Успех — это не случайность. Это результат подготовки, упорного труда и извлечения уроков из неудач.", author: "Колин Пауэлл"),
-        MotivationalQuote(text: "Верь в себя и все, что ты есть. Знай, что внутри тебя есть что-то большее, чем любое препятствие.", author: nil),
-        MotivationalQuote(text: "Прогресс, а не совершенство.", author: nil)
+        MotivationalQuote(text: "Success is the sum of small efforts, repeated day in and day out.", author: "Robert Collier"),
+        MotivationalQuote(text: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author: "Aristotle"),
+        MotivationalQuote(text: "Don't give up. Usually the key turns on the last try.", author: nil),
+        MotivationalQuote(text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb"),
+        MotivationalQuote(text: "Consistency is the secret to success.", author: nil),
+        MotivationalQuote(text: "We are what we repeatedly do. Excellence, then, is not an act, but a habit.", author: "Aristotle"),
+        MotivationalQuote(text: "Small changes over time lead to big results.", author: nil),
+        MotivationalQuote(text: "Don't wait for the perfect moment. Start right now.", author: nil),
+        MotivationalQuote(text: "Victory belongs to those who persevere.", author: nil),
+        MotivationalQuote(text: "A journey of a thousand miles begins with a single step.", author: "Lao Tzu"),
+        MotivationalQuote(text: "Every day is a new chance to become better.", author: nil),
+        MotivationalQuote(text: "Habits form character, character determines destiny.", author: nil),
+        MotivationalQuote(text: "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing.", author: "Pele"),
+        MotivationalQuote(text: "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.", author: nil),
+        MotivationalQuote(text: "Progress, not perfection.", author: nil)
     ]
 }
 
@@ -35,12 +35,12 @@ class MotivationService {
     
     private init() {}
     
-    /// Получить случайную цитату
+    /// Get random quote
     func randomQuote() -> MotivationalQuote {
         MotivationalQuote.quotes.randomElement() ?? MotivationalQuote.quotes[0]
     }
     
-    /// Получить цитату для дня
+    /// Get quote of the day
     func quoteOfTheDay() -> MotivationalQuote {
         let calendar = Calendar.current
         let dayOfYear = calendar.ordinality(of: .day, in: .year, for: Date()) ?? 0
@@ -48,24 +48,26 @@ class MotivationService {
         return MotivationalQuote.quotes[index]
     }
     
-    /// Получить мотивационное сообщение на основе стрика
+    /// Get motivational message based on streak
     func messageForStreak(_ streak: Int) -> String {
         switch streak {
         case 0:
-            return "Начните свой путь к успеху сегодня!"
+            return "Start your journey to success today!"
         case 1..<3:
-            return "Отличное начало! Продолжайте в том же духе!"
+            return "Great start! Keep it up!"
         case 3..<7:
-            return "Вы на правильном пути! Еще немного!"
+            return "You're on the right track! Just a bit more!"
         case 7..<14:
-            return "Неделя подряд! Это впечатляет!"
+            return "A week straight! That's impressive!"
         case 14..<30:
-            return "Две недели! Вы формируете настоящую привычку!"
+            return "Two weeks! You're building a real habit!"
         case 30..<90:
-            return "Месяц подряд! Вы молодец!"
+            return "A month straight! You're doing great!"
         default:
-            return "Невероятно! Вы настоящий мастер дисциплины!"
+            return "Incredible! You're a true master of discipline!"
         }
     }
 }
+
+
 

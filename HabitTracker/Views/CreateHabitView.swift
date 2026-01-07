@@ -2,7 +2,7 @@
 //  CreateHabitView.swift
 //  HabitTracker
 //
-//  Экран создания и редактирования привычки
+//  Screen for creating and editing habits
 //
 
 import SwiftUI
@@ -19,19 +19,19 @@ struct CreateHabitView: View {
     var body: some View {
         NavigationView {
             Form {
-                // Основная информация
-                Section("Основная информация") {
-                    TextField("Название привычки", text: $viewModel.name)
+                // Basic information
+                Section("Basic Information") {
+                    TextField("Habit name", text: $viewModel.name)
                         .focused($isNameFocused)
                         .onAppear {
                             isNameFocused = true
                         }
                     
-                    TextField("Описание (необязательно)", text: $viewModel.description, axis: .vertical)
+                    TextField("Description (optional)", text: $viewModel.description, axis: .vertical)
                         .lineLimit(3...6)
                     
-                    Picker("Категория", selection: $viewModel.selectedCategory) {
-                        Text("Без категории").tag(nil as HabitCategory?)
+                    Picker("Category", selection: $viewModel.selectedCategory) {
+                        Text("No category").tag(nil as HabitCategory?)
                         ForEach(HabitCategory.allCases) { category in
                             HStack {
                                 Image(systemName: category.icon)
@@ -43,11 +43,11 @@ struct CreateHabitView: View {
                     }
                 }
                 
-                // Внешний вид
-                Section("Внешний вид") {
-                    // Выбор цвета
+                // Appearance
+                Section("Appearance") {
+                    // Color selection
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Цвет")
+                        Text("Color")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                         
@@ -68,9 +68,9 @@ struct CreateHabitView: View {
                     }
                     .padding(.vertical, 8)
                     
-                    // Выбор иконки
+                    // Icon selection
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Иконка")
+                        Text("Icon")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                         
@@ -97,9 +97,9 @@ struct CreateHabitView: View {
                     .padding(.vertical, 8)
                 }
                 
-                // Цель
-                Section("Цель") {
-                    Picker("Тип цели", selection: $viewModel.goalType) {
+                // Goal
+                Section("Goal") {
+                    Picker("Goal type", selection: $viewModel.goalType) {
                         ForEach(GoalType.allCases, id: \.self) { type in
                             Text(type.description).tag(type)
                         }
@@ -111,7 +111,7 @@ struct CreateHabitView: View {
                         step: 1
                     ) {
                         HStack {
-                            Text("Целевое значение:")
+                            Text("Target value:")
                             Spacer()
                             Text("\(viewModel.goalValue)")
                                 .foregroundColor(.secondary)
@@ -119,28 +119,28 @@ struct CreateHabitView: View {
                     }
                 }
                 
-                // Напоминания
-                Section("Напоминания") {
-                    Toggle("Включить напоминания", isOn: $viewModel.isReminderEnabled)
+                // Reminders
+                Section("Reminders") {
+                    Toggle("Enable reminders", isOn: $viewModel.isReminderEnabled)
                     
                     if viewModel.isReminderEnabled {
-                        DatePicker("Время", selection: $viewModel.reminderTime, displayedComponents: .hourAndMinute)
+                        DatePicker("Time", selection: $viewModel.reminderTime, displayedComponents: .hourAndMinute)
                         
                         DaysOfWeekPicker(selectedDays: $viewModel.reminderDays)
                     }
                 }
             }
-            .navigationTitle(viewModel.existingHabit == nil ? "Новая привычка" : "Редактировать")
+            .navigationTitle(viewModel.existingHabit == nil ? "New Habit" : "Edit")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Отмена") {
+                    Button("Cancel") {
                         onCancel()
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Сохранить") {
+                    Button("Save") {
                         let habit = viewModel.saveHabit()
                         onSave(habit)
                     }
@@ -156,7 +156,7 @@ struct CreateHabitView: View {
 struct DaysOfWeekPicker: View {
     @Binding var selectedDays: Set<Int>
     
-    private let dayNames = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
+    private let dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     private let dayNumbers = [1, 2, 3, 4, 5, 6, 7]
     
     var body: some View {

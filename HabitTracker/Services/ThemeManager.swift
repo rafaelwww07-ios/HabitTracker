@@ -2,7 +2,7 @@
 //  ThemeManager.swift
 //  HabitTracker
 //
-//  Менеджер тем оформления
+//  Theme manager
 //
 
 import Foundation
@@ -10,12 +10,12 @@ import SwiftUI
 import Combine
 
 enum AppTheme: String, CaseIterable {
-    case system = "Системная"
-    case light = "Светлая"
-    case dark = "Темная"
-    case blue = "Голубая"
-    case purple = "Фиолетовая"
-    case green = "Зеленая"
+    case system = "System"
+    case light = "Light"
+    case dark = "Dark"
+    case blue = "Blue"
+    case purple = "Purple"
+    case green = "Green"
     
     var colorScheme: ColorScheme? {
         switch self {

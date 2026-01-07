@@ -1,27 +1,26 @@
 # Changelog
 
-Все значимые изменения в проекте будут документироваться в этом файле.
+All notable changes to this project will be documented in this file.
 
 ## [1.0.0] - 2024-11-27
 
-### Добавлено
-- Полный функционал отслеживания привычек
-- Система геймификации с баллами и уровнями
-- Челленджи и достижения
-- Расширенная аналитика и статистика
-- Heat Map календарь активности
-- Группы привычек
-- Триггеры привычек
-- Интеграция с HealthKit
-- Экспорт в различные форматы (CSV, JSON, PDF)
-- Интеграция с календарем iOS
-- Резервное копирование
-- 6 тем оформления
-- Онбординг для новых пользователей
+### Added
+- Complete habit tracking functionality
+- Gamification system with points and levels
+- Challenges and achievements
+- Advanced analytics and statistics
+- Heat Map activity calendar
+- Habit groups
+- Habit triggers
+- HealthKit integration
+- Export to various formats (CSV, JSON, PDF)
+- iOS Calendar integration
+- Backup and restore
+- 6 themes
+- Onboarding for new users
 
-### Технические детали
-- MVVM + Repository архитектура
-- Core Data для хранения данных
-- SwiftUI для UI
-- Централизованный Logger вместо print()
-
+### Technical Details
+- MVVM + Repository architecture
+- Core Data for data storage
+- SwiftUI for UI
+- Centralized Logger instead of print()

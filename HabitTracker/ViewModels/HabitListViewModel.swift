@@ -2,7 +2,7 @@
 //  HabitListViewModel.swift
 //  HabitTracker
 //
-//  ViewModel для главного экрана со списком привычек
+//  ViewModel for main screen with habit list
 //
 
 import Foundation
@@ -29,7 +29,7 @@ class HabitListViewModel: ObservableObject {
         self.notificationManager = notificationManager
     }
     
-    /// Загрузить все привычки
+    /// Load all habits
     func loadHabits() {
         isLoading = true
         errorMessage = nil
@@ -46,7 +46,7 @@ class HabitListViewModel: ObservableObject {
         }
     }
     
-    /// Переключить выполнение привычки на сегодня
+    /// Toggle habit completion for today
     func toggleCompletion(for habit: Habit) {
         Task {
             do {
